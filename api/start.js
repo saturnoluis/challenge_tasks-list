@@ -1,31 +1,34 @@
 const express = require('express');
 const cors = require('cors');
 
-const { getTasks } = require('./tasks');
+const TasksService = require('./TasksService');
+
+const PORT = 2700;
 
 (async () => {
   console.log('✨ Starting API...');
 
   const app = express();
-  const port = 2700;
   
   app.use(cors());
 
+  const tasksService = new TasksService();
+
   app.get('/tasks', async (req, res) => {
-    const tasks = await getTasks();
+    const tasks = await tasksService.getTasks();
 
     res.send(tasks);
   });
 
   app.get('/tasks/:quantity', async (req, res) => {
     const { quantity } = req.params;
-    const tasks = await getTasks(quantity);
+    const tasks = await tasksService.getTasks(quantity);
 
     res.send(tasks);
   });
 
-  app.listen(port, () => {
-    console.log(`⚡ API running on port:${port}\n`);
+  app.listen(PORT, () => {
+    console.log(`⚡ API running on port:${PORT}\n`);
   });
 
   // end
