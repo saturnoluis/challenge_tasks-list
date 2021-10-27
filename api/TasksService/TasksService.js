@@ -5,6 +5,7 @@ const SOURCE_URL = 'https://lorem-faker.vercel.app/api';
 
 const generateTask = title => ({
   title,
+  done: false, 
   uuid: crypto.randomUUID(), 
 });
 
