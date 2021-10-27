@@ -27,21 +27,47 @@
   background-color: var(--color-bg-body);
 
   &__body {
-    @include app-wrap;
     flex-grow: 1;
+    @include app-wrap;
   }
 
-  &__header,
+  &__header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding: 2em;
+
+    h1 {
+      display: block;
+      font-size: 5em;
+      margin: 1em 0;
+      border-bottom: 1px solid var(--color-text-dim);
+      @include app-wrap;
+    }
+  }
+
   &__footer {
     width: 100vw;
-    padding: 1em;
+    padding: 2em 0 6em 0;
+    text-align: right;
+    @include app-wrap;
+
+    a {
+      color: var(--color-accent-2);
+      font-size: 1.4em;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-accent-1);
+      }
+    }
   }
 }
 
 .TasksList {
   display: grid;
   grid-gap: 3em;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0;
   padding: 2em;
   list-style: none;
