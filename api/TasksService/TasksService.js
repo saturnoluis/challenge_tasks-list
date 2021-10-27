@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
 const crypto = require('crypto');
-const { isArray, isEmpty } = require('lodash');
 
 const SOURCE_URL = 'https://lorem-faker.vercel.app/api';
 
@@ -15,27 +14,26 @@ module.exports = class TasksService {
     this.limit = limit > 0 ? limit : 3;
   }
 
-  getTasks(quantity = this.limit) {
-    return new Promise((resolve, reject) => {
-      const theresNoTasks = this.tasks.length > 0;
-      const theresMoreTasksThanRequired = this.tasks.length >= quantity;
+  getTasks(limit = this.limit) {
+    const N = parseInt(limit); // number of tasks to return or fetch
+    const theresEnoughTasks = this.tasks.length >= N;
 
-      if(theresNoTasks || theresMoreTasksThanRequired) {
-        return resolve(this.tasks.slice(0, quantity));
+    return new Promise((resolve, reject) => {
+      if(theresEnoughTasks) {
+        console.log(`Returned ${N} tasks from local state.\n`);
+        return resolve(this.tasks.slice(0, N));
       }
 
-      const urlParams = new URLSearchParams({ quantity });
+      console.log(`Requesting ${N} new tasks from source...`);
+      const urlParams = new URLSearchParams({ quantity: N });
       const fetchURL = `${SOURCE_URL}?${urlParams}`;
-      
+
       fetch(fetchURL)
         .then(fetchResponse => fetchResponse.json())
         .then((response) => {
-          console.log(response, `!${isEmpty(response)} || !${isArray(response)}`)
-          if(!isEmpty(response) && !isArray(response)) {
-            return resolve(this.tasks);
-          }
-
           this.tasks = response.map(generateTask)
+
+          console.log('Done.\n')
           return resolve(this.tasks);
         })
         .catch(reject);
