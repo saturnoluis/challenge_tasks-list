@@ -1,5 +1,13 @@
 const fetch = require('node-fetch');
+const crypto = require('crypto');
+const { isArray, isEmpty } = require('lodash');
+
 const SOURCE_URL = 'https://lorem-faker.vercel.app/api';
+
+const generateTask = title => ({
+  title,
+  uuid: crypto.randomUUID(), 
+});
 
 module.exports = class TasksService {
   constructor(limit) {
@@ -22,8 +30,13 @@ module.exports = class TasksService {
       fetch(fetchURL)
         .then(fetchResponse => fetchResponse.json())
         .then((response) => {
-          this.tasks = response;
-          return resolve(response);
+          console.log(response, `!${isEmpty(response)} || !${isArray(response)}`)
+          if(!isEmpty(response) && !isArray(response)) {
+            return resolve(this.tasks);
+          }
+
+          this.tasks = response.map(generateTask)
+          return resolve(this.tasks);
         })
         .catch(reject);
     });
