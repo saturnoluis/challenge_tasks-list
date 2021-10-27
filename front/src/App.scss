@@ -3,27 +3,93 @@
   max-width: 1000px;
 }
 
+.dark {
+  --color-bg-body: #303030;
+  --color-bg-card: #202020;
+
+  --color-text-primary: #dfdfdf;
+  --color-text-dim: #626262;
+
+  --color-accent-1: #CD2C00;
+  --color-accent-2: #FFAF00;
+}
+
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100vh;
   width: 100vw;
   overflow: hidden auto;
-  background-color: #1f1f1f;
-  color: #d3d3d3;
-  flex-direction: column;
   font-size: 10px;
+  color: #d3d3d3;
+  background-color: var(--color-bg-body);
 
   &__body {
     @include app-wrap;
-    background-color: cadetblue;
+    flex-grow: 1;
   }
 
   &__header,
   &__footer {
     width: 100vw;
-    padding: 2em;
-    background-color: brown;
+    padding: 1em;
+  }
+}
+
+.TasksList {
+  display: grid;
+  grid-gap: 3em;
+  grid-template-columns: auto auto auto;
+  margin: 0;
+  padding: 2em;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    border-radius: 1.3em;
+    min-height: 20em;
+    background: var(--color-accent-1);
+    background: linear-gradient(-45deg,
+                var(--color-accent-1) 0%,
+                var(--color-accent-2) 50%,
+                var(--color-bg-card) 50%
+              ); 
+    background-size: 300%;
+    background-position: 0%;
+    transition: all 500ms;
+  }
+
+  &__item:hover {
+    background-position: 100%;
+  }
+}
+
+.Task {  
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  flex-grow: 1;
+  border-radius: 1em;
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+  margin: .4em;
+
+  &:active {
+    margin: .8em
+  }
+
+  &__number {
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    padding: .5em 1em;
+    color: var(--color-text-dim)
+  }
+
+  &__title {
+    font-size: 2.4em;
+    padding: .5em;
   }
 }
