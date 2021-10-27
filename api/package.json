@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/saturnoluis/challenge_tasks-list/issues"
   },
-  "homepage": "https://github.com/saturnoluis/challenge_tasks-list#readme"
+  "homepage": "https://github.com/saturnoluis/challenge_tasks-list#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^3.0.0"
+  }
 }
