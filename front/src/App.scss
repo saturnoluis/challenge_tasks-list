@@ -1,0 +1,29 @@
+@mixin app-wrap {
+  width: 80vw;
+  max-width: 1000px;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden auto;
+  background-color: #1f1f1f;
+  color: #d3d3d3;
+  flex-direction: column;
+  font-size: 10px;
+
+  &__body {
+    @include app-wrap;
+    background-color: cadetblue;
+  }
+
+  &__header,
+  &__footer {
+    width: 100vw;
+    padding: 2em;
+    background-color: brown;
+  }
+}
