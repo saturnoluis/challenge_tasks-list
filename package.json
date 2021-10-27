@@ -1,0 +1,32 @@
+{
+  "name": "challenge_tasks-list",
+  "version": "1.0.0",
+  "description": "Fullstack node/react challenge consisting in the creation of an API and frontend to fetch and display tasks. ",
+  "main": "index.js",
+  "scripts": {
+    "install:front": "cd ./front && npm install",
+    "install:api": "cd ./api && npm install",
+    "install": "npm run install:api & npm run install:front",
+
+    "start:front": "cd ./front && npm run start",
+    "start:api": "cd ./api && npm run start",
+    "start": "npm run start:api & npm run start:front",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saturnoluis/challenge_tasks-list.git"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "express"
+  ],
+  "author": "Luis Saturno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saturnoluis/challenge_tasks-list/issues"
+  },
+  "homepage": "https://github.com/saturnoluis/challenge_tasks-list#readme"
+}
