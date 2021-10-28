@@ -1,4 +1,6 @@
-import { useAppContext } from '../../App/provider';
+import { useAppContext } from '../../app/provider';
+
+import './TaskDialog.scss';
 
 export default function TaskDialog () {
   const { openTask, setOpenTask } = useAppContext();
@@ -21,26 +23,28 @@ export default function TaskDialog () {
     <>
     {uuid && !done
       ? <article className="TaskDialog">
-          <header className="TaskDialog__header">
-            Task #{n}
-          </header>
-          <h1 className="TaskDialog__title">
-            {title}
-          </h1>
-          <footer className="TaskDialog__footer">
-          <input
-              className="TaskDialog__button--complete"
-              type="button"
-              value="Complete"
-              onClick={handleComplete}
-            />
+          <div className="TaskDialog__window">
+            <header className="TaskDialog__header">
+              Task #{n}
+            </header>
+            <h1 className="TaskDialog__title">
+              {title}
+            </h1>
+            <footer className="TaskDialog__footer">
             <input
-              className="TaskDialog__button--close"
-              type="button"
-              value="Close"
-              onClick={handleClose}
-            />
-          </footer>
+                className="TaskDialog__button--complete"
+                type="button"
+                value="Complete"
+                onClick={handleComplete}
+              />
+              <input
+                className="TaskDialog__button--close"
+                type="button"
+                value="Close"
+                onClick={handleClose}
+              />
+            </footer>
+          </div>
         </article>
       : null
     }

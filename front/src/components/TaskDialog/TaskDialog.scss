@@ -1,0 +1,27 @@
+.TaskDialog {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--color-transparent);
+  animation-name: backdrop;
+  animation-duration: 3000;
+  animation-fill-mode: forwards;
+
+  &__window {
+    display: block;
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    top: 20vh;
+    left: 25vw;
+    z-index: 10;
+    background-color: var(--color-bg-card);
+    box-shadow: 0 0 20em 10em var(--color-backdrop);
+    border: 2px solid var(--color-bg-body);
+    border-radius: 1em;
+  }
+}
