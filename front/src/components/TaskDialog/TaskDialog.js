@@ -23,7 +23,7 @@ export default function TaskDialog () {
     <>
     {uuid && !done
       ? <article className="TaskDialog">
-          <div className="TaskDialog__window">
+          <div className="TaskDialog__card">
             <header className="TaskDialog__header">
               Task #{n}
             </header>
@@ -31,7 +31,7 @@ export default function TaskDialog () {
               {title}
             </h1>
             <footer className="TaskDialog__footer">
-            <input
+              <input
                 className="TaskDialog__button--complete"
                 type="button"
                 value="Complete"
