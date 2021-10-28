@@ -1,3 +1,4 @@
+import TasksList from './components/TasksList';
 import './App.scss';
 
 function App() {
@@ -7,16 +8,7 @@ function App() {
         <h1>My Tasks</h1>
       </header>
       <main className="App__body">
-        <ul className="TasksList">
-          {dummyData().map(({ title, done, uuid }, i) => (
-            <li className="TasksList__item" key={uuid}>
-              <article className="Task">
-                <aside className="Task__number">Task #{i + 1}</aside>
-                <p className="Task__title">{title}</p>
-              </article>
-            </li>
-          ))}
-        </ul>
+        <TasksList tasks={dummyData()} />
       </main>
       <footer className="App__footer">
         <a

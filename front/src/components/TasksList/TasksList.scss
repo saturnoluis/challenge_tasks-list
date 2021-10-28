@@ -1,0 +1,27 @@
+.TasksList {
+  display: grid;
+  grid-gap: 3em;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0;
+  padding: 2em;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    border-radius: 1.3em;
+    min-height: 20em;
+    background: var(--color-accent-1);
+    background: linear-gradient(-45deg,
+                var(--color-accent-1) 0%,
+                var(--color-accent-2) 50%,
+                var(--color-bg-card) 50%
+              ); 
+    background-size: 300%;
+    background-position: 0%;
+    transition: all 500ms;
+  }
+
+  &__item:hover {
+    background-position: 100%;
+  }
+}

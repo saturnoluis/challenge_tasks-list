@@ -1,0 +1,28 @@
+.Task {  
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  flex-grow: 1;
+  border-radius: 1em;
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+  margin: .4em;
+  user-select: none;
+
+  &:active {
+    margin: .8em
+  }
+
+  &__number {
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    padding: .5em 1em;
+    color: var(--color-text-dim)
+  }
+
+  &__title {
+    font-size: 2.4em;
+    padding: .5em;
+  }
+}
