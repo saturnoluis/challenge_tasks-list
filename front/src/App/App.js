@@ -1,5 +1,6 @@
 import { AppProvider } from './provider';
 import Main from '../components/Main';
+import TaskDialog from '../components/TaskDialog';
 
 import './App.scss';
 
@@ -21,6 +22,7 @@ function App() {
           </a>
         </footer>
       </div>
+      <TaskDialog />
     </AppProvider>
   );
 }

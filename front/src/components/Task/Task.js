@@ -1,11 +1,27 @@
 import PropTypes from 'prop-types';
+import { useAppContext } from '../../App/provider';
 
 import './Task.scss';
 
 export default function TasksList ({ title, uuid, done, n }) {
-  const mod = done ? 'Task--done' : '';
+  const mod = done ? ' Task--done' : '';
+  const { setOpenTask } = useAppContext();
+
+  const handleClick = () => {
+    setOpenTask({
+      n,
+      uuid,
+      title,
+      done,
+    });
+  }
+
   return (
-    <article className={`Task${mod}`} id={uuid}>
+    <article
+      id={uuid}
+      onClick={handleClick}
+      className={`Task${mod}`}>
+
       <aside className="Task__number">Task #{n}</aside>
       <p className="Task__title">{title}</p>
     </article>
