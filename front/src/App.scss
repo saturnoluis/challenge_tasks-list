@@ -1,8 +1,3 @@
-@mixin app-wrap {
-  width: 80vw;
-  max-width: 1000px;
-}
-
 .dark {
   --color-bg-body: #303030;
   --color-bg-card: #202020;
@@ -26,11 +21,6 @@
   color: #d3d3d3;
   background-color: var(--color-bg-body);
 
-  &__body {
-    flex-grow: 1;
-    @include app-wrap;
-  }
-
   &__header {
     display: flex;
     justify-content: center;
@@ -42,7 +32,8 @@
       font-size: 5em;
       margin: 1em 0;
       border-bottom: 1px solid var(--color-text-dim);
-      @include app-wrap;
+      width: 80vw;
+      max-width: 1000px;
     }
   }
 
@@ -50,7 +41,8 @@
     width: 100vw;
     padding: 2em 0 6em 0;
     text-align: right;
-    @include app-wrap;
+    width: 80vw;
+    max-width: 1000px;
 
     a {
       color: var(--color-accent-2);
