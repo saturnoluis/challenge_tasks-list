@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useAppContext } from '../../App/provider';
+import { useAppContext } from '../../app/provider';
 
 import './Task.scss';
 

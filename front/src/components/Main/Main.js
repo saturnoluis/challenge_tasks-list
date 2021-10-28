@@ -1,4 +1,4 @@
-import { useAppContext } from '../../App/provider';
+import { useAppContext } from '../../app/provider';
 import TasksList from '../TasksList';
 
 import './Main.scss';

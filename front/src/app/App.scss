@@ -7,9 +7,13 @@
 
   --color-accent-1: #CD2C00;
   --color-accent-2: #FFAF00;
+
+  --color-backdrop: rgba(27,27,27,.7);
+  --color-transparent: rgba(0,0,0,0); 
 }
 
 .App {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

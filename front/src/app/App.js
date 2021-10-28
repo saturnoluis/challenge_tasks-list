@@ -21,8 +21,8 @@ function App() {
               github/saturnoluis
           </a>
         </footer>
+        <TaskDialog />
       </div>
-      <TaskDialog />
     </AppProvider>
   );
 }
