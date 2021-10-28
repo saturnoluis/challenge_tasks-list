@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { getTasks } from './App.api';
+import { getTasks } from './api';
 
 export const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);

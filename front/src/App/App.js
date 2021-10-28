@@ -1,5 +1,5 @@
-import { AppProvider } from './App.provider';
-import Main from './components/Main/Main';
+import { AppProvider } from './provider';
+import Main from '../components/Main';
 
 import './App.scss';
 
